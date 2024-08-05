@@ -1,0 +1,8 @@
+import pandas as pd
+
+def article_views(views: pd.DataFrame) -> pd.DataFrame:
+    condition = views['author_id']==views['viewer_id']
+    key_list = list(views[condition]['author_id'].unique())
+    key_list.sort()
+    return pd.DataFrame({'id' : key_list})
+    
